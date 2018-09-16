@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>Register</servlet-name>
+    <servlet-class>tut.controller.UserDetailsController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Register</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ResetPasswordController</servlet-name>
+    <servlet-class>tut.controller.ResetPasswordController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResetPasswordController</servlet-name>
+    <url-pattern>/ResetPasswordController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>tut.controller.UserLoginController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>tut.controller.UserLogoutController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CourseDetailsController</servlet-name>
+    <servlet-class>tut.controller.CourseDetailsController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CourseDetailsController</servlet-name>
+    <url-pattern>/CourseDetailsController</url-pattern>
+  </servlet-mapping>
+</web-app>
