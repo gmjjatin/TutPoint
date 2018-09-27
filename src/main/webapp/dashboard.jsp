@@ -22,11 +22,11 @@ if(session.getAttribute("uemail") == null){
 		//UserDetailsEntity ude=(UserDetailsEntity)session.getAttribute("ude");
 		UserDetailsEntity ude=OfyService.ofy().load().type(UserDetailsEntity.class).id(uemail).now();
 		String servingUrl;
-		if(ude.picKey == null){
+		if(ude.picId == null){
 			servingUrl="img/default.jpg";
 		}
 		else{
-	 	String blobKey = ude.picKey;
+	 	String blobKey = ude.picId;
 		BlobKey bk = new BlobKey(blobKey);
 		ImagesService imagesService = ImagesServiceFactory.getImagesService();
 		ServingUrlOptions servingOptions = ServingUrlOptions.Builder.withBlobKey(bk); 
@@ -47,9 +47,9 @@ if(session.getAttribute("uemail") == null){
 
 		<title>TutPoint - Dashboard</title>	
 
-		<meta name="keywords" content="Tution" />
-		<meta name="description" content="Tution Advertorial Site">
-		<meta name="author" content="Jatin Sharma">
+		<meta name="keywords" content="tuition" />
+		<meta name="description" content="Best tuition">
+		<meta name="author" content="cv-jatinsharm.appspot.com">
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
@@ -119,25 +119,17 @@ if(session.getAttribute("uemail") == null){
 							<div class="header-column">
 								<div class="header-row">
 									<div class="header-logo py-2">
-										<a href="index.html">
+										<a href="index.jsp">
 											<img alt="TutPoint" width="160" height="48" src="img/demos/education/logo.png">
 										</a>
 									</div>
 								</div>
 							</div>
 							<div class="header-column justify-content-end">
-								<div class="header-row" style="height: 110px;">
-													<div class="button_box2" >
-						<form class="form-wrapper-2 cf">
-							<input type="text" placeholder="Search here..." required>
-							<button type="submit">Search</button>
-						</form>
-					</div>
-			
+								<div class="header-row">
 									<div class="header-nav header-nav-stripe">
 										<div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1">
 											<nav class="collapse">
-			
 												<ul class="nav" id="mainNav">
 													<li>
 														<a class="nav-link" href="index.jsp">
@@ -177,33 +169,34 @@ if(session.getAttribute("uemail") == null){
 
 				<div class="row clearfix">
 				
-					<div class="col-md-12 clearfix ">
+					<div class="col-md-3 clearfix">
 
-								<div class="col-md-4 heading-block noborder" align="center">
-									<h1><%=ude.name%></h1>
-									<span>Phone: <%=ude.phone%></span>
-								</div>
-								<div class="col-md-4 fancy-title topmargin title-border">
-									<img src="<%=servingUrl%>" alt="Profile Photo"	class="img-responsive img-thumbnail">
-								</div>
-								<div class="col-md-4 list-group">
-									<a href="dashboard.jsp"
-										class="list-group-item list-group-item-action clearfix">Profile
-										<i class="fa fa-user float-right"></i>
-									</a> <a href="editProfile.jsp"
-										class="list-group-item list-group-item-action clearfix">Edit
-										Profile<i class="fa fa-edit float-right"></i>
-									</a> <a href="logout"
-										class="list-group-item list-group-item-action clearfix">Logout
-										<i class="fa fa-sign-out float-right"></i>
-									</a>
-								</div>
+							<div class="list-group">
+								<a href="dashboard.jsp" class="list-group-item list-group-item-action clearfix">Profile <i class="fa fa-user float-right"></i></a>								
+								<a href="editProfile.jsp" class="list-group-item list-group-item-action clearfix">Edit Profile<i class="fa fa-edit float-right"></i></a>
+								<a href="logout" class="list-group-item list-group-item-action clearfix">Logout <i class="fa fa-sign-out float-right"></i></a>
+							</div>
 
-
-							</div>		
+							<div class="fancy-title topmargin title-border" style="margin-top:40px;">
+								<h4>Profile Photo</h4>
+							</div>
+							<p><img src="<%=servingUrl%>" alt="Profile Photo" class="img-responsive img-thumbnail"></p>
+							
+							
+							<!-- <%// }
+							//else{ 
+							%>
+							<a href="editProfile.jsp"><p><img src="img/default.jpeg" alt="Add Profile Photo" class="img-responsive img-thumbnail"></p></a>
+							<% //} %>-->
+							
+					</div>		
 
 					<div class="w-100 line d-block d-md-none"></div>
-					<div class="col-md-12">
+					<div class="col-md-9">
+						<div class="heading-block noborder" align="center">
+							<h1><%= ude.name %></h1>
+							<span>Phone: <%= ude.phone %></span>
+						</div>
 						<hr>
 						<div class="clear"></div>
 
@@ -222,13 +215,13 @@ if(session.getAttribute("uemail") == null){
 							while(itr.hasNext()){							
 							CourseDetailsEntity user=itr.next();
 							if(uemail.equals(user.owner)){
-							UserDetailsEntity tutor=OfyService.ofy().load().type(UserDetailsEntity.class).id(user.owner).now();
-							String cId=user.uniqueID;
+							//UserDetailsEntity tutor=OfyService.ofy().load().type(UserDetailsEntity.class).id(user.owner).now();
+							String cId=user.courseId;
 							%>
-							<div class="col-9 col-md-4 col-lg-4 col-xl-4 mb-4 pb-3 appear-animation <%=user.tutType %> columnC" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="100">
+							<div class="col-9 col-md-4 col-lg-4 col-xl-4 mb-4 pb-3 appear-animation <%=user.courseType %> columnC" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="100">
 								<div class="thumb-info thumb-info-hide-wrapper-bg custom-thumb-info-style-1">
 									<div class="thumb-info-wrapper">
-										<a href=<%="\"courseDetail.jsp?courseId="+user.uniqueID+"\"" %>><img src="<%=servingUrl %>" class="img-fluid resp img-thumbnail" alt=""></a>
+										<a href=<%="\"courseDetail.jsp?courseId="+cId+"\"" %>><img src="<%=servingUrl %>" class="img-fluid resp img-thumbnail" alt=""></a>
 										<div class="thumb-info-price background-color-secondary font-weight-semibold">
 											<span>Rs. <%= user.courseFees %></span>
 										</div>
@@ -238,7 +231,7 @@ if(session.getAttribute("uemail") == null){
 									<div class="thumb-info-caption" style="margin-bottom:-40px;">
 										<a href=<%="\"courseDetail.jsp?courseId="+cId+"\"" %>><h2 class="font-weight-semibold text-transform-none" style="margin-top:-50px;"><%= user.subject %></h2></a>
 										<h6> </h6>
-										<h5> -<%= tutor.name %></h5>
+										<h5> -<%= ude.name %></h5>
 										<% if("Home".equals(user.tutType)){ %>
 										<i class="fa fa-home text-color-primary"> Home Tuition</i>
 										<h6></h6>
@@ -262,7 +255,7 @@ if(session.getAttribute("uemail") == null){
 										<div class="modal-body">
 											<form action="removecourse">
 													<label for="inputUserName"><h4>Do you want to remove the course?</h4></label>
-													<input type="hidden" name="courseId" value="<%=cId %>"><br>
+													<input type="hidden" name="courseId" value=""><br>
 													<button type="submit" class="btn btn-primary">Delete</button> &nbsp;
 												<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
 											</form>
@@ -277,10 +270,10 @@ if(session.getAttribute("uemail") == null){
 							<div class="col-6 col-md-6 col-lg-4 col-xl-4 mb-4 pb-3 appear-animation school" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">
 								<div class="thumb-info thumb-info-hide-wrapper-bg custom-thumb-info-style-1">
 									<div class="thumb-info-wrapper">
-										<a href="courseEdit.jsp"><img src="img/plus.jpg" class="img-fluid" alt=""></a>
+										<a href="addCourse.jsp"><img src="img/plus.jpg" class="img-fluid" alt=""></a>
 									</div>
 									<div class="thumb-info-caption">
-										<a href="courseEdit.jsp">
+										<a href="addCourse.jsp">
 										<h4>
 											Add a Course
 										</h4>

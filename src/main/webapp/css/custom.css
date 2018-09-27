@@ -1,6 +1,9 @@
 /* Add here all your CSS customizations */
 
-
+.like:hover{
+	cursor: pointer;
+	color: black;
+}
 
 
 .button_box2 {

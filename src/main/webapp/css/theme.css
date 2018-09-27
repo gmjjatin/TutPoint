@@ -233,8 +233,8 @@ li {
 }
 
 #header .header-logo {
-	margin: 16px 0;
-	margin: 1rem 0;
+	/* margin: 16px 0;
+	margin: 1rem 0; */
 }
 
 #header .header-logo img {
@@ -1447,7 +1447,7 @@ html:not(.sticky-header-active) #header.header-transparent-sticky-deactive.heade
 	}
 
 	#header .header-nav.header-nav-stripe {
-		min-height: 90px;
+		/* min-height: 90px; */
 	}
 
 	#header .header-nav.header-nav-top-line {

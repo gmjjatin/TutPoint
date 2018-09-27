@@ -1,5 +1,7 @@
 package tut.controller;
 
+import static tut.service.OfyService.ofy;
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -10,9 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import tut.dao.UserDetailsDao;
 import tut.entity.UserDetailsEntity;
-import tut.service.OfyService;
 
 /**
  * Servlet implementation class PasswordController
@@ -30,9 +30,10 @@ public class ResetPasswordController extends HttpServlet {
 		RequestDispatcher rd=request.getRequestDispatcher("/resetPassword.jsp");
 				
 				
-				UserDetailsDao udd=new UserDetailsDao();
 				
-				UserDetailsEntity user=udd.giveMeUser((String) sess.getAttribute("uemail"));
+				//UserDetailsEntity user=udd.giveMeUser((String) sess.getAttribute("uemail"));
+				String email=(String) sess.getAttribute("uemail");
+				UserDetailsEntity user=ofy().load().type(UserDetailsEntity.class).id(email).now();
 				
 				sess.setAttribute("oldPassword",user.pass);
 				rd.forward(request, response);

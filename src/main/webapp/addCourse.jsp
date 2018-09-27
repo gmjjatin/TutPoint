@@ -1,5 +1,16 @@
+<%@page import="com.googlecode.objectify.impl.Session"%>
+<%
 
-<!DOCTYPE html>
+if(session.getAttribute("uemail") == null){
+	response.sendRedirect("loginerror.html");
+}
+	else
+	{
+		String uEmail=(String)session.getAttribute("uemail");
+		
+		%>
+		
+		<!DOCTYPE html>
 <html>
 	<head>
 
@@ -7,11 +18,11 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">	
 
-		<title>TutPoint - Login</title>	
+		<title>TutPoint - Add a Course</title>	
 
-		<meta name="keywords" content="HTML5 Template" />
-		<meta name="description" content="Porto - Responsive HTML5 Template">
-		<meta name="author" content="okler.net">
+		<meta name="keywords" content="tuition" />
+		<meta name="description" content="tution">
+		<meta name="author" content="cv-jatinsharma.appspot.com">
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
@@ -57,32 +68,18 @@
 
 	</head>
 	<body>
-	
+
 		<div class="body">
 			<header id="header" class="header-semi-transparent custom-header-semi-transparent" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 49, 'stickySetTop': '-49px', 'stickyChangeLogo': false}">
 				<div class="header-body">
 					<div class="header-top header-top-style-3">
 						<div class="container">
 							<div class="header-row">
-								<div class="header-column justify-content-start">
-									<div class="header-row">
-										<nav class="header-nav-top">
-											<!--<ul class="nav">
-												<li>Phone: <a href="tel:+1234567890"><span class="ws-nowrap">125 586 5555</span></a></li>
-												<li class="d-none d-md-block"> Email: <span class="ws-nowrap"><a class="text-decoration-none" href="mailto:info@porto.com">info@porto.com</a></span></li>
-												<li class="d-none d-lg-block">Time: <span class="ws-nowrap">Mon-Sat 8:00am - 5:00pm</span></li>
-											</ul>-->
-										</nav>
-									</div>
-								</div>
-								
-								<div class="header-column justify-content-end">
+							<div class="header-column justify-content-end">
 									<div class="header-row">
 										<nav class="header-nav-top mr-0">
 											<ul class="nav">
-											
-												<li><a href="#registernow"><span class="ws-nowrap"><i class="far fa-user"></i> Login</span></a></li>
-												<li><a href="#registernow"><span class="ws-nowrap"><i class="fas fa-pencil-alt"></i> Register</span></a></li>
+												<li><a href="logout"><span class="ws-nowrap"> Logout</span></a></li>
 											</ul>
 										</nav>
 									</div>
@@ -101,9 +98,6 @@
 									</div>
 								</div>
 							</div>
-							<div class="search-area">
-                               
-                            </div>
 							<div class="header-column justify-content-end">
 								<div class="header-row">
 									<div class="header-nav header-nav-stripe">
@@ -111,15 +105,20 @@
 											<nav class="collapse">
 												<ul class="nav" id="mainNav">
 													<li>
-														<a class="nav-link" href="index.jsp">
+														<a class="nav-link active" href="index.jsp">
 															Home
 														</a>
 													</li>
 													<li>
-													<a class="nav'link" href="index.jsp#seecourses">
+														<a class="nav-link" href="index.jsp#seecourses">
 															Courses
-													</a>
-													</li>														
+														</a>
+													</li>
+													<li>
+														<a class="nav-link" href="dashboard.jsp">
+															Dashboard
+														</a>
+													</li>
 												</ul>
 											</nav>
 										</div>
@@ -135,44 +134,86 @@
 			</header>
 			<div role="main" class="main">
 				
-				<div class="slider-container rev_slider_wrapper" style="height:150px;">
+			<div class="container" style="height:220px;">
+			<div class="row" style="height:160px;"></div>
+			</div>
+					<h2>Add a Course</h2>
 				</div>
-				
-				
-				<section id="registernow" class="section parallax section-parallax my-0 border-0" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'parallaxHeight': '125%'}" data-image-src="img/demos/education/parallax/parallax-1.jpg">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-5 col-lg-5 col-xl-6 offset-md-3 appear-animation" data-appear-animation="fadeInLeftShorter">
-								<h4 style="color:green; text-align:center;">Registration Successful. Please Login</h4>
-								
-								<div class="card">
-									<div class="card-body p-5">
-										<h2 class="font-weight-bold text-center text-6 mb-0">SIGN IN</h2>
-										<p class="text-color-dark text-5 text-center"></p>
-										<form class="custom-form-style-1" action="login" method="post">
-											<div class="form-row">
-												<div class="form-group col-md-12">
-													<input type="text" value="" data-msg-required="Please enter your email" maxlength="100" class="form-control background-color-tertiary" name="email" id="email" placeholder=" Email" required>
-												</div>
-												
-											</div>
-												<div class="form-group col-md-13">
-													<input type="password" value="" maxlength="100" class="form-control background-color-tertiary custom-border-left-1" name="pass" id="userpass" placeholder=" Password">
-												</div>
-												<h6 class="text-center"><a href="forgotPass">Forgot Password</a></h6>
-											<div class="form-row">
-												<div class="form-group col">
-													<input type="submit" value="SignIn" class="btn btn-primary text-1 font-weight-semibold d-block text-4 py-3 w-100" data-loading-text="Loading...">
-												</div>
-											</div>
-										</form>
-									</div>
+				<div class="section background-color-tertiary border-0 my-0" style="padding-top:40px;">
+
+					<div class="container"><form action="addCourse" method="">
+						<div class="row pt-1 pb-4 mb-3">
+							<div class="col">
+					
+						<div class="row padtop">
+							<div class="col-md-2"><h5>Select Type/Level of Course:</h5></div>
+								<div class="col-md-5">	
+									<select name="course-type">
+										<option value="" selected disabled hidden>Choose here</option>
+										<option><h5>School</h5></option>
+										<option><h5>Professional</h5></option>
+										<option><h5>CoCurricular</h5></option>
+									</select>
 								</div>
 							</div>
-						</div>
+							<div class="row padtop">
+								<div class="col-md-2"><h5>Subject:</h5>
+								</div>
+								<div class="col-md-5"><input type="text" maxlength=40 name="course-subject">
+								</div>
+							</div>
+								
+							<div class="row padtop">
+								<div class="col-md-2"><h5>Select Class:</h5></div>
+								<div class="col-md-5"><input type="text" maxlength=30 placeholder="eg: 9,10 or college" name="classLevel"></div>
+							</div>
+							<div class="row padtop">
+								<div class="col-md-2"><h5>Tuition Type:</h5></div>
+								<div class="col-md-5">
+									<input type="radio" name="tutType" value="Centre" checked> Tuition Centre &nbsp; &nbsp;
+									<input type="radio" name="tutType" value="Home"> Home Tuition<br>
+								</div>
+							</div>
+							<div class="row padtop">
+								<div class="col-md-2"><h5>Name of Tuition Centre:</h5></div>
+								<div class="col-md-5"><input type="text" maxlength=30 placeholder="*for Tuition Centre only" name="course-centre-name"></div>
+							</div>
+							<div class="row padtop">
+								<div class="col-md-2"><h5>Address of Tuition Centre:</h5></div>
+								<div class="col-md-5"><input type="text" maxlength=100 placeholder="*for Tuition Centre only" name="course-centre-address"></div>
+							</div>
+							<div class="row padtop">
+								<div class="col-md-2"><h5>Preferred Fees:</h5></div>
+								<div class="col-md-5"><input type="text" maxlength=100  name="course-fees"></div>
+							</div>
+							<div class="row padtop">
+								<div class="col-md-2"><h5>Fees negotiable:</h5></div>
+								<div class="col-md-5">
+									<input type="radio" name="fees-neg" value="yes" checked> Yes &nbsp; &nbsp;
+									<input type="radio" name="fees-neg" value="no"> No<br>
+								</div>
+							</div>
+							<div class="row padtop">
+								<div class="col-md-2"><h5>Trial Classes:</h5></div>
+								<div class="col-md-5">
+									<input type="radio" name="trial" value="yes" checked> Yes &nbsp; &nbsp;
+									<input type="radio" name="trial" value="no"> No<br>
+								</div>
+							</div>
+							<div class="row padtop">
+								<div class="col-md-2"><h5>Experience:</h5></div>
+								<div class="col-md-5"><input type="number" maxlength=2 name="course-exp"> &nbsp; Years</div>
+							</div>
+							<div class="row padtop">
+								<div class="col-md-2">
+									<button type="submit" class="btn btn-primary">Submit</button>
+								</div>
+							</div>
+						</form>
 					</div>
-				</section>
-				
+				</div>
+			</div>
+
 			<footer id="footer" class="background-color-quaternary border-top-0 mt-0">
 				<div class="container">
 				<div class="row">					
@@ -243,14 +284,14 @@
 					<div class="container">
 						<div class="row">
 							<div class="col">
-								<p class="text-center">Â© Copyright 2018. All Rights Reserved.</p>
+								<p class="text-center">© Copyright 2018. All Rights Reserved.</p>
 							</div>
 						</div>
 					</div>
 				</div>
 				</div>
-			</footer>		</div>
-			</div>
+			</footer>
+		</div>
 
 		<!-- Vendor -->
 		<script src="vendor/jquery/jquery.min.js"></script>
@@ -305,3 +346,8 @@
 
 	</body>
 </html>
+		
+		<%
+	}
+%>
+		

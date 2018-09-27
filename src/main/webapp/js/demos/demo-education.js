@@ -50,21 +50,9 @@ Theme Version:	6.2.1
 			));
 		});
 	}
+	
+	
 
-	/*
-	* Register Form Validation
-	*/
-	$('#registerForm').validate({
-		onkeyup: false,
-		onclick: false,
-		onfocusout: false,
-		errorPlacement: function(error, element) {
-			if (element.attr('type') == 'radio' || element.attr('type') == 'checkbox') {
-				error.appendTo(element.parent().parent());
-			} else {
-				error.insertAfter(element);
-			}
-		}
-	});
+
 
 }).apply( this, [ jQuery ]);

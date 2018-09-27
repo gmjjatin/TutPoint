@@ -1,53 +1,60 @@
 package tut.entity;
 
+
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
 
 @Entity
 public class CourseDetailsEntity {
-	@Id
-	public 	String uniqueID;
+	@Id 
 	@Index
-	public String email;
+	public String courseId;
+	public String courseType;
 	@Index
-	public 	String owner;
-	@Index
-	public 	String level;
-	@Index
-	public 	String subject;
-	public 	String experience;
-	@Index
-	public 	String tutName;
-	public 	String tutAdd;
-	@Index
-	public String courseFees;
+	public String subject;
+	public String experience;
+	public String tutType;
+	public String tutName;
+	public String tutAdd;
 	public String feesNeg;
+	public String courseFees;
 	public String trial;
 	@Index
-	public String tutType;
+	public String owner;
+	public String classlvl;
+	@Index
+	public int likes=0;
 	
 	public CourseDetailsEntity() {
-
+		// TODO Auto-generated constructor stub
 	}
-	
-	public CourseDetailsEntity(String uniqueID,String owner,String level,String subject,	String experience,	String tutName,	String tutAdd , String courseFees,String feesNeg,String trial, String tutType ,String email) {
-		this.uniqueID= uniqueID;
-		this.owner=owner;
-		this.level= level;
-		this.subject= subject;
-		this.experience =experience;
-		this.tutName= tutName;
-		this.tutAdd= tutAdd;
-		this.email=email;
+
+	public CourseDetailsEntity(String courseId,String courseType, String courseSubject, String classlvl, String tutType, String tutName,
+			String tutAddress, String courseExperience, String email, String courseFees, String feesNeg, String trial ) {
+		
+		this.courseId=courseId;
+		
+		this.courseType=courseType;
+		subject=courseSubject;
+		this.tutType=tutType;
+		this.tutName=tutName;
+		tutAdd=tutAddress;
+		experience=courseExperience;		
+		owner=email;
 		this.courseFees=courseFees;
 		this.feesNeg=feesNeg;
 		this.trial=trial;
-		this.tutType=tutType;
-		
-	
-	
+		this.classlvl=classlvl;
 	}
+	public CourseDetailsEntity(int likes) {
+		
+		this.likes=likes;
+		
+	}
+	
+	
+	
 	
 	 
 }

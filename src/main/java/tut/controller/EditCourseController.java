@@ -1,7 +1,6 @@
 package tut.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import tut.service.CourseDetailsService;
 
-public class CourseDetailsController extends HttpServlet {
+public class EditCourseController extends HttpServlet {
 	/**
 	 * 
 	 */
@@ -28,16 +27,23 @@ public class CourseDetailsController extends HttpServlet {
 		String feesNeg=request.getParameter("fees-neg");
 		String trial=request.getParameter("trial");
 		String classlvl=request.getParameter("classLevel");
-		
-		HttpSession sess = request.getSession(false);
-		String uEmail = (String)sess.getAttribute("uemail");
+		String cId=request.getParameter("courseId");
+		String uEmail = null ;
+		try {
+			HttpSession sess = request.getSession(false);
+			uEmail = (String)sess.getAttribute("uemail");
+		}
+		catch(Exception e) {
+			response.sendRedirect("loginerror.html");
+			
+		}
 		
 		
 		//RequestDispatcher rd=request.getRequestDispatcher("dashboard.jsp");
 		
 		CourseDetailsService cds=new CourseDetailsService();
 		
-		cds.addCourse(courseType, courseSubject, classlvl,tutType, tutName, tutAddress, courseExperience, uEmail, courseFees, feesNeg, trial);
+		cds.editCourseService(cId,courseType, courseSubject, classlvl,tutType, tutName, tutAddress, courseExperience, uEmail, courseFees, feesNeg, trial);
 		
 		response.sendRedirect("dashboard.jsp");
 		

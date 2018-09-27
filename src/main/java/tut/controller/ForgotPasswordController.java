@@ -1,5 +1,7 @@
 package tut.controller;
 
+import static tut.service.OfyService.ofy;
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -11,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import tut.entity.UserDetailsEntity;
 import tut.service.MailServices;
-import tut.service.UserDetailsService;
 
 /**
  * Servlet implementation class ForgotPasswordController
@@ -29,9 +30,10 @@ public class ForgotPasswordController extends HttpServlet {
 		}
 		if("true"==request.getAttribute("forgotPasswordResolved")) {
 			String emailFP=request.getParameter("email");
-			UserDetailsService uds=new UserDetailsService();
-			UserDetailsEntity user1=uds.checkIfUserExists(emailFP);
+			
+			UserDetailsEntity user1=ofy().load().type(UserDetailsEntity.class).id(emailFP).now();
 			MailServices ms=new MailServices();
+			
 			ms.sendForgotPasswordMail(user1.email, "TutPoint Password Recovery", "Dear ,\" \n \""+user1.name+"Your current password is : "+user1.pass);
 			System.out.println("email sent");
 			RequestDispatcher rd=request.getRequestDispatcher("/index.jsp");

@@ -1,76 +1,47 @@
 package tut.controller;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.google.appengine.api.blobstore.BlobKey;
-import com.google.appengine.api.blobstore.BlobstoreService;
-import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
-
+import tut.service.SendMail;
 import tut.service.UserDetailsService;
 
-@SuppressWarnings("serial")
 public class UserDetailsController extends HttpServlet {
-	String name;
-	String email;
-	String phone;
-	String pass;
-	String lname;
-	String gender;
-	String picKey;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		HttpSession session=request.getSession(false);
-		picKey=request.getParameter("picKey");
-		if((session.getAttribute("editProfile"))!=null) {
-			BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
-			Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(request);
-			List<BlobKey> blobKeys = blobs.get("picKey");
-			picKey=blobKeys.get(0).getKeyString();
-			System.out.println(picKey);
-		}
-		
-		
-		name = request.getParameter("name");
-		email = request.getParameter("email");
-		phone = request.getParameter("phone");
-		pass = request.getParameter("pass");
-		lname = request.getParameter("lname");
-		gender = request.getParameter("gender");
-		
-
-		
-
-		
-		UserDetailsService uds = new UserDetailsService();
-
-		if (uds.checkIfUserAlreadyExists(email)&& lname==null) {
-			response.sendRedirect("registererror.html");
-		}
-
-		else {
-			uds.registerUser(name, email, phone, pass, lname, gender, picKey);
-			session.setAttribute("picKey",picKey);
-
-			if (lname != null) {
-				RequestDispatcher rd =request.getRequestDispatcher("/dashboard.jsp");
-				request.setAttribute("editProfileSuccess","true");
-				rd.forward(request, response);
-
-			}
-
-			RequestDispatcher rd = request.getRequestDispatcher("login.html");
-			rd.forward(request, response);
-		}
-	}
-
+	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 	
+	String name = request.getParameter("name");
+	String email = request.getParameter("email");
+	String phone= request.getParameter("phone");
+	String pass = request.getParameter("pass");
+	String age=null;
+	String picId=null;
+	
+	UserDetailsService ud = new UserDetailsService();
+	
+	RequestDispatcher rd=request.getRequestDispatcher("login.html");
+		
+	      if(ud.checkIfUserAlreadyExists(email))
+	      {
+	    	  response.sendRedirect("registererror.html");
+	      }
+	      
+	      else
+	      {
+	    	  System.out.println("New User");
+	    	  ud.registerUser(name,email,phone,pass,age,picId);
+	    	  SendMail mail=new SendMail();
+	    	  mail.send(email, "TutPoint", "Welcome!"+System.lineSeparator()+"Thank you for registering with TutPoint"+System.lineSeparator()+System.lineSeparator()+"You can now add your own courses and the students near you can see and contact you through the information provided by you.");
+	    	  rd.forward(request, response);
+	      }
+	     
+	}
 }

@@ -1,15 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<head>
 
-		<title>Password Recovery</title>	
-<meta name="keywords" content="Tution" />
-		<meta name="description" content="Tution Advertorial Site">
-		<meta name="author" content="Jatin Sharma">
+		<!-- Basic -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">	
 
+		<title>TutPoint - Login</title>	
+
+		<meta name="keywords" content="HTML5 Template" />
+		<meta name="description" content="Porto - Responsive HTML5 Template">
+		<meta name="author" content="okler.net">
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
@@ -77,36 +79,11 @@
 								<div class="header-column justify-content-end">
 									<div class="header-row">
 										<nav class="header-nav-top mr-0">
-
-
-<nav class="header-nav-top mr-0"  style="border: 0 1px 1px 0 grey;float:right;" >
 											<ul class="nav">
-												<%if(request.getAttribute("logout")!=null){
-													%><li><span class="ws-nowrap" style="color: red"><i class="far fa-user"></i>Succesfully Logged-out</span></li>
-												<%
-												}
-												 %>
-												 <%if(("true").equals(request.getAttribute("recoveryMailSent"))){
-													%><li><span class="ws-nowrap" style="color: green"><i class="far fa-user"></i>Recovery Mail sent succesfully </span></li>
-												<%
-												}
-												 %>
-												 <%if(session.getAttribute("uemail")!=null){
-													%><li><a href="/logout"><span class="ws-nowrap"><i class="far fa-user"></i> Logout</span></a></li>
-												<%
-												}else{
-												 %>
+											
 												<li><a href="#registernow"><span class="ws-nowrap"><i class="far fa-user"></i> Login</span></a></li>
 												<li><a href="#registernow"><span class="ws-nowrap"><i class="fas fa-pencil-alt"></i> Register</span></a></li>
-												<%} %>
 											</ul>
-										</nav>
-								
-
-
-
-
-											
 										</nav>
 									</div>
 								</div>
@@ -146,40 +123,13 @@
 											<nav class="collapse">
 												<ul class="nav" id="mainNav">
 													<li>
-														<a class="nav-link active" href="index.jsp">
+														<a class="nav-link" href="index.jsp">
 															Home
 														</a>
 													</li>
-													<li class="dropdown">
-													<a class="dropdown-item dropdown-toggle" href="demo-education-courses.html">
-															Courses
-														</a>
-														<ul class="dropdown-menu">
-															<li>
-																<a class="dropdown-item nav-link" href="index.jsp">
-																	School
-																</a>
-															</li>
-														<li>
-																<a class="dropdown-item nav-link" href="index.jsp">
-																	Professional
-																</a>
-															</li>
-														<li>
-																<a class="dropdown-item nav-link" href="index.jsp">
-																	Co-Curricular
-																</a>
-															</li>
-															<li>
-																<a class="dropdown-item nav-link" href="demo-education-courses.html">
-																	View All
-																</a>
-															</li>
-															</ul>
-														
 													<li>
-														<a class="nav-link" href="demo-education-instructors.html">
-															Tutors
+														<a class="nav-link" href="index.jsp#seecourses">
+															Courses
 														</a>
 													</li>
 												</ul>
@@ -205,86 +155,29 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-5 col-lg-5 col-xl-6 offset-md-3 appear-animation" data-appear-animation="fadeInLeftShorter">
+								<h4 style="color:green; text-align:center;">Registration Successful. Please Login</h4>
 								
 								<div class="card">
 									<div class="card-body p-5">
-										<%request.setAttribute("forgotPasswordResolved", "true"); %>
-										<h2 class="font-weight-bold text-center text-6 mb-0">SEND EMAIL</h2>
+										<h2 class="font-weight-bold text-center text-6 mb-0">SIGN IN</h2>
 										<p class="text-color-dark text-5 text-center"></p>
-										<form class="custom-form-style-1" action="/ForgotPasswordController" method="get">
-											
+										<form class="custom-form-style-1" action="login" method="post">
 											<div class="form-row">
 												<div class="form-group col-md-12">
-													<input type="text" value="" data-msg-required="Please enter your Email" maxlength="100" class="form-control background-color-tertiary" name="email" id="email" placeholder="email*" required>
+													<input type="text" value="" data-msg-required="Please enter your email" maxlength="100" class="form-control background-color-tertiary" name="email" id="email" placeholder=" email*" required>
 												</div>
 												
 											</div>
-												
+												<div class="form-group col-md-13">
+													<input type="password" value="" maxlength="100" class="form-control background-color-tertiary custom-border-left-1" name="pass" id="userpass" placeholder=" password">
+												</div>
+												<h6 class="text-center"><a href="forgotPass">Forgot Password</a></h6>
 											<div class="form-row">
 												<div class="form-group col">
-													<input type="submit" value="Send Email" class="btn btn-primary text-1 font-weight-semibold d-block text-4 py-3 w-100" data-loading-text="Loading...">
+													<input type="submit" value="SignIn" class="btn btn-primary text-1 font-weight-semibold d-block text-4 py-3 w-100" data-loading-text="Loading...">
 												</div>
 											</div>
 										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section class="section background-color-light border-0 my-0">
-					<div class="container">
-						<div class="row text-center">
-							<div class="col">
-								<h2 class="font-weight-bold mb-4 appear-animation" data-appear-animation="fadeInUpShorter">What Students Says</h2>
-							</div>
-						</div>
-						<div class="row justify-content-center appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200">
-							<div class="col">
-								<div class="owl-carousel custom-nav m-0" data-plugin-options="{'items': 1, 'loop': false, 'dots': false, 'nav': true, 'autoHeight': true}">
-									<div class="row justify-content-center">
-										<div class="col-lg-10">
-											<div class="testimonial testimonial-style-2 testimonial-with-quotes custom-testimonial-style-1">
-												<blockquote>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in arcu facilisis quam aliquam ultrices quis in purus. Donec volutpat et justo et viverra. Suspendisse id justo a ipsum viverra ultrices quis et quam.</p>
-												</blockquote>
-												<div class="testimonial-author">
-													<img src="img/demos/education/authors/author-1.jpg" class="img-fluid rounded-circle" alt />
-													<p>
-														<strong class="text-uppercase text-color-dark">ALICE DOE</strong>
-													</p>
-													<div class="rate">
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="row justify-content-center">
-										<div class="col-lg-10">
-											<div class="testimonial testimonial-style-2 testimonial-with-quotes custom-testimonial-style-1">
-												<blockquote>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in arcu facilisis quam aliquam ultrices quis in purus. Donec volutpat et justo et viverra. Suspendisse id justo a ipsum viverra ultrices quis et quam.</p>
-												</blockquote>
-												<div class="testimonial-author">
-													<img src="img/demos/education/authors/author-2.jpg" class="img-fluid rounded-circle" alt />
-													<p>
-														<strong class="text-uppercase text-color-dark">JOSIE DOE</strong>
-													</p>
-													<div class="rate">
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-													</div>
-												</div>
-											</div>
-										</div>
 									</div>
 								</div>
 							</div>

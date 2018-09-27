@@ -9,10 +9,9 @@
 
 		<title>TutPoint</title>	
 
-	<meta name="keywords" content="Tution" />
-		<meta name="description" content="Tution Advertorial Site">
-		<meta name="author" content="Jatin Sharma">
-
+		<meta name="keywords" content="HTML5 Template" />
+		<meta name="description" content="Porto - Responsive HTML5 Template">
+		<meta name="author" content="okler.net">
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
@@ -82,8 +81,8 @@
 										<nav class="header-nav-top mr-0">
 											<ul class="nav">
 											
-												<li><a href="/index.jsp"><span class="ws-nowrap"><i class="far fa-user"></i> Login</span></a></li>
-												<li><a href="/index.jsp/#registernow"><span class="ws-nowrap"><i class="fas fa-pencil-alt"></i> Register</span></a></li>
+												<li><a href="#registernow"><span class="ws-nowrap"><i class="far fa-user"></i> Login</span></a></li>
+												<li><a href="#registernow"><span class="ws-nowrap"><i class="fas fa-pencil-alt"></i> Register</span></a></li>
 											</ul>
 										</nav>
 									</div>
@@ -103,19 +102,7 @@
 								</div>
 							</div>
 							<div class="search-area">
-                                <form action="#" method="post">
-                                   <input type="search" name="search" list="mysearch" id="search" placeholder="Search">
-									<datalist id="mysearch">
-											<option>Accountancy</option>
-											<option>Business Studies</option>
-											<option>Chemistry</option>		
-											<option>Maths</option>	
-											<option>Physics</option>
-											<option>Science</option>
-											<option>Maths</option>
-									</datalist>
-                                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                </form>
+                                
                             </div>
 							<div class="header-column justify-content-end">
 								<div class="header-row">
@@ -124,40 +111,13 @@
 											<nav class="collapse">
 												<ul class="nav" id="mainNav">
 													<li>
-														<a class="nav-link active" href="index.jsp">
+														<a class="nav-link" href="index.jsp">
 															Home
 														</a>
 													</li>
-													<li class="dropdown">
-													<a class="dropdown-item dropdown-toggle" href="demo-education-courses.html">
-															Courses
-														</a>
-														<ul class="dropdown-menu">
-															<li>
-																<a class="dropdown-item nav-link" href="index.jsp">
-																	School
-																</a>
-															</li>
-														<li>
-																<a class="dropdown-item nav-link" href="index.jsp">
-																	Professional
-																</a>
-															</li>
-														<li>
-																<a class="dropdown-item nav-link" href="index.jsp">
-																	Co-Curricular
-																</a>
-															</li>
-															<li>
-																<a class="dropdown-item nav-link" href="demo-education-courses.html">
-																	View All
-																</a>
-															</li>
-															</ul>
-														
 													<li>
-														<a class="nav-link" href="demo-education-instructors.html">
-															Tutors
+														<a class="nav-link" href="index.jsp#seecourses">
+															Courses
 														</a>
 													</li>
 												</ul>
@@ -178,30 +138,62 @@
 				<div class="slider-container rev_slider_wrapper" style="height:150px;">
 				</div>
 				
-				
 				<section id="registernow" class="section parallax section-parallax my-0 border-0" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'parallaxHeight': '125%'}" data-image-src="img/demos/education/parallax/parallax-1.jpg">
 					<div class="container">
 						<div class="row">
-							<div class="col-md-5 col-lg-5 col-xl-6 offset-md-3 appear-animation" data-appear-animation="fadeInLeftShorter">
-								<h4 style="color:red; text-align:center;">Username or Password is incorrect. Login again</h4>
-								
+							<div class="col-lg-12 col-12" style="margin-top:-40px;">
+								<h4 style="color:red; text-align:center;">Email or password is incorrect.<br> Register now or Login again.</h4>
+							</div>
+							<div class="col-md-7 col-lg-7 col-xl-6 appear-animation" id="registerForm" data-appear-animation="fadeInLeftShorter">	
+								<div class="card">
+									<div class="card-body p-5">
+										<h2 class="font-weight-bold text-center text-6 mb-0">REGISTER NOW</h2>
+										<p class="text-color-dark text-3 text-center">and start teaching</p>
+										<form class="custom-form-style-1" action="register" method="post">
+											<div class="form-row">
+												<div class="form-group col-md-6 pr-md-0">
+													<input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control background-color-tertiary" name="name" id="name" placeholder=" Name*" required>
+												</div>
+												<div class="form-group col-md-6 pl-md-0">
+													<input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control background-color-tertiary custom-border-left-1" name="email" id="email" placeholder=" Email*" required>
+												</div>
+											</div>
+											<div class="form-row">
+												<div class="form-group col-md-6 pr-md-0">
+													<input type="text" value="" data-msg-required="Please enter your phone number." maxlength="100" class="form-control background-color-tertiary" name="phone" id="phone" placeholder=" Phone*" required>
+												</div>
+												<div class="form-group col-md-6 pl-md-0">
+													<input type="password" value="" data-msg-required="Please enter your password." maxlength="100" class="form-control background-color-tertiary custom-border-left-1" name="pass" id="pass" placeholder=" Password*" required>
+												</div>
+												
+											</div>
+											<div class="form-row">
+												<div class="form-group col" style="padding-top:8px;">
+													<input type="submit" value="REGISTER" class="btn btn-primary text-1 font-weight-semibold d-block text-4 py-3 w-100" data-loading-text="Loading...">
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-5 col-lg-5 col-xl-6 appear-animation" data-appear-animation="fadeInLeftShorter">
 								<div class="card">
 									<div class="card-body p-5">
 										<h2 class="font-weight-bold text-center text-6 mb-0">SIGN IN</h2>
 										<p class="text-color-dark text-5 text-center"></p>
-										<form class="custom-form-style-1" action="/login" method="get">
+										<form class="custom-form-style-1" action="login" method="post">
 											<div class="form-row">
 												<div class="form-group col-md-12">
-													<input type="text" value="" data-msg-required="Please enter your username" maxlength="100" class="form-control background-color-tertiary" name="email" id="email" placeholder="email*" required>
+													<input type="text" value="" data-msg-required="Please enter your Email Id" maxlength="100" class="form-control background-color-tertiary" name="email" id="email" placeholder=" Email" required>
 												</div>
 												
 											</div>
 												<div class="form-group col-md-13">
-													<input type="password" value="" maxlength="100" class="form-control background-color-tertiary custom-border-left-1" name="pass" id="pass" placeholder=" password*" required>
+													<input type="password" value="" maxlength="100" class="form-control background-color-tertiary custom-border-left-1" name="pass" id="userpass" placeholder=" Password">
 												</div>
-												<h6 class="text-center"><a href="forgotPass">Forgot Password</a></h6>
+												<h6 class="text-center"><a href="forgotPass.html">Forgot Password</a></h6>
 											<div class="form-row">
-												<div class="form-group col">
+												<div class="form-group col" style="padding-bottom:-5px;">
 													<input type="submit" value="SignIn" class="btn btn-primary text-1 font-weight-semibold d-block text-4 py-3 w-100" data-loading-text="Loading...">
 												</div>
 											</div>
@@ -212,145 +204,83 @@
 						</div>
 					</div>
 				</section>
-				<section class="section background-color-light border-0 my-0">
-					<div class="container">
-						<div class="row text-center">
-							<div class="col">
-								<h2 class="font-weight-bold mb-4 appear-animation" data-appear-animation="fadeInUpShorter">What Students Says</h2>
-							</div>
-						</div>
-						<div class="row justify-content-center appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200">
-							<div class="col">
-								<div class="owl-carousel custom-nav m-0" data-plugin-options="{'items': 1, 'loop': false, 'dots': false, 'nav': true, 'autoHeight': true}">
-									<div class="row justify-content-center">
-										<div class="col-lg-10">
-											<div class="testimonial testimonial-style-2 testimonial-with-quotes custom-testimonial-style-1">
-												<blockquote>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in arcu facilisis quam aliquam ultrices quis in purus. Donec volutpat et justo et viverra. Suspendisse id justo a ipsum viverra ultrices quis et quam.</p>
-												</blockquote>
-												<div class="testimonial-author">
-													<img src="img/demos/education/authors/author-1.jpg" class="img-fluid rounded-circle" alt />
-													<p>
-														<strong class="text-uppercase text-color-dark">ALICE DOE</strong>
-													</p>
-													<div class="rate">
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="row justify-content-center">
-										<div class="col-lg-10">
-											<div class="testimonial testimonial-style-2 testimonial-with-quotes custom-testimonial-style-1">
-												<blockquote>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in arcu facilisis quam aliquam ultrices quis in purus. Donec volutpat et justo et viverra. Suspendisse id justo a ipsum viverra ultrices quis et quam.</p>
-												</blockquote>
-												<div class="testimonial-author">
-													<img src="img/demos/education/authors/author-2.jpg" class="img-fluid rounded-circle" alt />
-													<p>
-														<strong class="text-uppercase text-color-dark">JOSIE DOE</strong>
-													</p>
-													<div class="rate">
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-														<i class="fas fa-star"></i>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
+				
 				
 			<footer id="footer" class="background-color-quaternary border-top-0 mt-0">
 				<div class="container">
-					<div class="row justify-content-between">
-						<div class="col-lg-3 mb-4 mb-lg-0">
-							<h2 class="font-weight-semibold text-color-light text-6 mb-3">Contact Details</h2>
-							<p>TutPoint Education <br>New Delhi , India</p>
-							<span class="d-block text-5 mb-4">
-								Email: <a href="mailto:admin-tutpoint@outlook.com" class="text-3">admin-tutpoint@outlook.com</a>
-							</span>
-							<ul class="social-icons social-icons-transparent social-icons-icon-light">
-								<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-								<li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-								<li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-							</ul>
-						</div>
-						<div class="col-lg-4 mb-4 mb-lg-0">
-							<div class="row">
-								<div class="col">
-									<h2 class="font-weight-semibold text-color-light text-6 mb-3">Courses</h2>
-								</div>
+				<div class="row">					
+					<div class="col-lg-9">
+						<div class="row justify-content-between">
+							<div class="col-lg-12"><h2>Contact Us</h2></div>
+							<div class="col-lg-4 col-md-4 mb-4 mb-lg-0">
+								<h5 class="text-color-light mb-3">Ankur Palmia</h5>
+								<p>B.Tech (Information Technology)<br>MSIT (GGSIPU)</p>
+							
+								<span class="d-block text-5 mb-4">
+									<a href="mailto:ankur.palmia@gmail.com" class="text-1">Email: ankur.palmia@gmail.com</a>
+								</span>
+								<ul class="social-icons social-icons-transparent social-icons-icon-light">
+									<li class="social-icons-facebook"><a href="http://www.facebook.com/ankur.palmia" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+									<li class="social-icons-instagram"><a href="https://www.instagram.com/ankurpalmia/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+									<li class="social-icons-linkedin"><a href="https://www.linkedin.com/in/ankur-palmia-9a44b8100/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+								</ul>
 							</div>
-							<div class="row">
-								<div class="col-lg-6">
-									<ul class="list list-unstyled mb-0">
-										<li><a href="demo-education-courses-detail.html">Archaeology</a></li>
-										<li><a href="demo-education-courses-detail.html">Architecture</a></li>
-										<li><a href="demo-education-courses-detail.html">Art & Design</a></li>
-										<li><a href="demo-education-courses-detail.html">Aural & Oral Sciences</a></li>
-										<li><a href="demo-education-courses-detail.html">Biological Sciences</a></li>
-										<li><a href="demo-education-courses-detail.html">Building</a></li>
-									</ul>
-								</div>
-								<div class="col-lg-6">
-									<ul class="list list-unstyled mb-0">
-										<li><a href="demo-education-courses-detail.html">Management Studies</a></li>
-										<li><a href="demo-education-courses-detail.html">Celtic Studies</a></li>
-										<li><a href="demo-education-courses-detail.html">Chemical Engineering</a></li>
-										<li><a href="demo-education-courses-detail.html">Chemistry</a></li>
-										<li><a href="demo-education-courses-detail.html">Civil Engineering</a></li>
-										<li><a href="demo-education-courses-detail.html" class="text-color-primary">Much More</a></li>
-									</ul>
-								</div>
+							<div class="col-lg-4 mb-4 col-md-4 mb-lg-0">
+								<h5 class="text-color-light mb-3">Chetanya Mahajan</h5>
+								<p>B.Tech (Computer Science)<br>MSIT (GGSIPU)</p>
+							
+								<span class="d-block text-5 mb-4">
+									<a href="mailto:chetanyamahajan98.com" class="text-1">Email: chetanyamahajan98@gmail.com</a>
+								</span>
+								<ul class="social-icons social-icons-transparent social-icons-icon-light">
+									<li class="social-icons-facebook"><a href="http://www.facebook.com/chetanya.mahajan" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+									<li class="social-icons-instagram"><a href="https://www.instagram.com/mahajan_chetanya/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+									<li class="social-icons-linkedin"><a href="https://www.linkedin.com/in/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+								</ul>
 							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="row">
-								<div class="col">
-									<h2 class="font-weight-semibold text-color-light text-6 mb-3">Newsletter</h2>
-									<div class="newsletter">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in arcu facilisis quam.</p>
-					
-										<div class="alert alert-success d-none" id="newsletterSuccess">
-											<strong>Success!</strong> You've been added to our email list.
-										</div>
-					
-										<div class="alert alert-danger d-none" id="newsletterError"></div>
-					
-										<form id="newsletterForm" action="php/newsletter-subscribe.php" method="POST">
-											<div class="input-group custom-input-group-style-1">
-												<input class="form-control form-control-sm" placeholder="Email Address" name="newsletterEmail" id="newsletterEmail" type="text">
-												<span class="input-group-append">
-													<button class="btn btn-primary px-4" type="submit">Subscribe</button>
-												</span>
-											</div>
-										</form>
-									</div>
-								</div>
+							<div class="col-lg-4 col-md-4 mb-4 mb-lg-0">
+								<h5 class="text-color-light mb-3">Jatin Sharma</h5>
+								<p>B.Tech (Information Technology)<br>MSIT (GGSIPU)</p>
+							
+								<span class="d-block text-5 mb-4">
+									<a href="mailto:gmjjatin@gmail.com" class="text-1">Email: gmjjatin@gmail.com</a>
+								</span>
+								<ul class="social-icons social-icons-transparent social-icons-icon-light">
+									<li class="social-icons-facebook"><a href="http://www.facebook.com/gmjjatin" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+									<li class="social-icons-instagram"><a href="https://www.instagram.com/gmjjatin/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+								<li class="social-icons-linkedin"><a href="https://www.linkedin.com/in/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+								</ul>
 							</div>
 						</div>
 					</div>
-				</div>
+					<div class="col-lg-3">
+					<div class="row justify-content-between">
+						<div class="col-lg-12">
+							<h4>Mentor</h4>
+						</div>
+						<div class="col-lg-12 col-md-12 mb-4 mb-lg-0">
+							<h5 class="text-color-light mb-3">Ashish Singh</h5>
+							<p>OSAHUB Technologies</p>
+							
+							<span class="d-block text-5 mb-4">
+								<a href="mailto:ashish@osahub.com" class="text-1">Email: ashish@osahub.com</a>
+							</span>
+							<ul class="social-icons social-icons-transparent social-icons-icon-light">
+								<li class="social-icons-website"><a href="http://www.osahub.com" target="_blank" title="Osahub"><i class="fab fa-internet-explorer"> www.osahub.com</i></a></li>
+								</ul>
+						</div>
+						</div>
+					</div>
+				</div>						
 				<div class="footer-copyright background-color-quaternary border-top-0">
 					<div class="container">
 						<div class="row">
 							<div class="col">
-								<p class="text-center">� Copyright 2018. All Rights Reserved.</p>
+								<p class="text-center">© Copyright 2018. All Rights Reserved.</p>
 							</div>
 						</div>
 					</div>
+				</div>
 				</div>
 			</footer>
 		</div>
@@ -360,7 +290,7 @@
 		<script src="vendor/jquery.appear/jquery.appear.min.js"></script>
 		<script src="vendor/jquery.easing/jquery.easing.min.js"></script>
 		<script src="vendor/jquery-cookie/jquery-cookie.min.js"></script>
-		<script src="vendor/popper/umd/popper.min.js"></script>
+		<script src="https://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
 		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 		<script src="vendor/common/common.min.js"></script>
 		<script src="vendor/jquery.validation/jquery.validation.min.js"></script>

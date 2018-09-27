@@ -13,9 +13,9 @@
 
 		<title>TutPoint - Dashboard Edit</title>	
 
-		<meta name="keywords" content="HTML5 Template" />
-		<meta name="description" content="Porto - Responsive HTML5 Template">
-		<meta name="author" content="okler.net">
+		<meta name="keywords" content="tuition" />
+		<meta name="description" content="tution">
+		<meta name="author" content="cv-jatinsharma.appspot.com">
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />

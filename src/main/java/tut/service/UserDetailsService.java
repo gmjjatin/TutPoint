@@ -1,5 +1,4 @@
 package tut.service;
-
 import tut.dao.UserDetailsDao;
 import tut.entity.UserDetailsEntity;
 
@@ -9,11 +8,11 @@ public class UserDetailsService {
 		return udd.checkNewUser(email);
 	}
 
-
-	public void registerUser(String name, String email, String phone, String pass,String lname,String gender,String pickey) {
-		udd.registerNewUser(name,email,phone,pass,lname,gender,pickey);
-		
-		
+	UserDetailsEntity ude=new UserDetailsEntity();
+	
+	public void registerUser(String name, String email, String phone, String pass, String age, String imageKey) {
+		UserDetailsEntity user=new UserDetailsEntity(name,email,phone,pass,age,imageKey);
+		udd.registerNewUser(user);
 	}
 
 
@@ -21,12 +20,5 @@ public class UserDetailsService {
 		
 		return udd.checkTheUser(email,pass);
 	}
-public UserDetailsEntity checkIfUserExists(String email) {
-		
-		return udd.checkTheUser(email);
-	}
-	
-
-
 
 }

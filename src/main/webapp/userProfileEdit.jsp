@@ -108,7 +108,7 @@
 							<div class="header-column">
 								<div class="header-row">
 									<div class="header-logo py-2">
-										<a href="index.html">
+										<a href="index.jsp">
 											<img alt="TutPoint" width="160" height="48" src="img/demos/education/logo.png">
 										</a>
 									</div>
@@ -121,7 +121,7 @@
 											<nav class="collapse">
 												<ul class="nav" id="mainNav">
 													<li>
-														<a class="nav-link" href="index.html">
+														<a class="nav-link" href="index.jsp">
 															Home
 														</a>
 													</li>
@@ -131,17 +131,17 @@
 														</a>
 														<ul class="dropdown-menu">
 															<li>
-																<a class="dropdown-item nav-link" href="index.html">
+																<a class="dropdown-item nav-link" href="index.jsp">
 																	School
 																</a>
 															</li>
 														<li>
-																<a class="dropdown-item nav-link" href="index.html">
+																<a class="dropdown-item nav-link" href="index.jsp">
 																	Professional
 																</a>
 															</li>
 														<li>
-																<a class="dropdown-item nav-link" href="index.html">
+																<a class="dropdown-item nav-link" href="index.jsp">
 																	Co-Curricular
 																</a>
 															</li>
@@ -180,7 +180,7 @@
 							</div>
 							<div class="col-lg-6">
 								<ul class="breadcrumb pull-right">
-									<li><a href="index.html">Home</a></li>
+									<li><a href="index.jsp">Home</a></li>
 									<li><a href="demo-education-dash.html">Dashboard</a></li>
 									<li class="active text-color-light">Edit Profile</li>
 								</ul>

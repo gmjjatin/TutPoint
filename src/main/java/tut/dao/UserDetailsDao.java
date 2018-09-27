@@ -6,7 +6,6 @@ public class UserDetailsDao {
 
 	public boolean checkNewUser(String email) {
 		UserDetailsEntity user=ofy().load().type(UserDetailsEntity.class).id(email).now();
-		
 		if(user != null)
 		{
 			return true;
@@ -16,47 +15,33 @@ public class UserDetailsDao {
 		
 	}
 
-	public void registerNewUser(String name, String email, String phone, String pass,String lname,String gender,String picKey) {
-
-		UserDetailsEntity user=new UserDetailsEntity(name, email, phone,pass, lname, gender, picKey);
-		
+	public void registerNewUser(UserDetailsEntity user) {
 		ofy().save().entity(user).now();
+		
 	}
+	
 
 	public UserDetailsEntity checkTheUser(String email, String pass) {
 		UserDetailsEntity user=ofy().load().type(UserDetailsEntity.class).id(email).now();
 		if(user != null)
-		{	if(pass == null) {
-			return null;
-		}
-			if( pass.equals(user.pass))
-				{return user;}
+		{
+			if(pass.equals(user.pass)){
+				return user;
+			}
 			else
-				{return null;}
+				return null;
 			
 		}
 		else
 			return null;
 		
 	}
-	public UserDetailsEntity checkTheUser(String email) {
-		UserDetailsEntity user=ofy().load().type(UserDetailsEntity.class).id(email).now();
-		if(user != null)
-		{return user;
-		}
-		else
-			return null;
+
+	public void editProfileDao(UserDetailsEntity ude) {
+		ofy().save().entity(ude);
 		
-	}
-	public UserDetailsEntity giveMeUser(String email) {
-		UserDetailsEntity user=ofy().load().type(UserDetailsEntity.class).id(email).now();
-		return user;
 	}
 
-	public void editUser(String name, String email, String phone,String pass,String  lname, String gender,String picKey) {
-		
-		UserDetailsEntity user=new UserDetailsEntity(name, email, phone, pass, lname, gender, picKey);
-		ofy().save().entity(user).now();
-	}
 	
+
 }

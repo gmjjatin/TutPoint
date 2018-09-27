@@ -1,33 +1,57 @@
 package tut.controller;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import com.google.appengine.api.blobstore.BlobKey;
+import com.google.appengine.api.blobstore.BlobstoreService;
+import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 
-import tut.dao.UserDetailsDao;
 import tut.entity.UserDetailsEntity;
 import tut.service.OfyService;
+import tut.service.UserDetailsService;
 
-
-@WebServlet("/EditProfileController")
 public class EditProfileController extends HttpServlet {
+
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
-       
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession sess=request.getSession(false);
-		String email=(String)sess.getAttribute("uemail");
-		UserDetailsEntity user=OfyService.ofy().load().type(UserDetailsEntity.class).id(email).now();
-		request.setAttribute("user",user);
-	
-		RequestDispatcher rd=request.getRequestDispatcher("editProfile.jsp");
+
+	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String phone= request.getParameter("phone");
+		String pass=request.getParameter("pass");
+		String age= request.getParameter("age");
+		
+		String imageKey;		
+		BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+		Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(request);
+		List<BlobKey> blobKeys = blobs.get("photo");
+		if(blobKeys==null){
+			UserDetailsEntity ude=OfyService.ofy().load().type(UserDetailsEntity.class).id(email).now();
+			imageKey=ude.picId;
+		}
+		else{
+		imageKey = blobKeys.get(0).getKeyString();
+		}
+		
+		UserDetailsService ud = new UserDetailsService();
+		
+	//	RequestDispatcher rd=request.getRequestDispatcher("dashboard.jsp");
+		
+		ud.registerUser(name, email, phone, pass, age, imageKey);
+		
+		response.sendRedirect("/dashboard.jsp");
+		
+		//res.forward(request, response);
 		
 	}
-
-
+	
 }

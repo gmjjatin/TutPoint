@@ -11,7 +11,6 @@ public class OfyService {
 	static{
 		ObjectifyService.register(UserDetailsEntity.class);
 		ObjectifyService.register(CourseDetailsEntity.class);
-		
 	}
 	public  static Objectify ofy(){
 		return ObjectifyService.ofy();

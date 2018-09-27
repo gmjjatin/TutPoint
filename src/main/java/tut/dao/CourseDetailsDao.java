@@ -1,15 +1,17 @@
 package tut.dao;
-
+import static tut.service.OfyService.ofy;
 import tut.entity.CourseDetailsEntity;
 
 public class CourseDetailsDao {
 
-	public void addCourse(String uniqueID, String owner, String level, String subject, String exp, String tutName,
-			String tutAdd,String courseFees,String feesNeg,String trial,String tutType, String email) {
-		// TODO Auto-generated method stub
+	public void addCourseDao(CourseDetailsEntity cde) {
+		
+		ofy().save().entity(cde).now();
+	}
 
-		CourseDetailsEntity course=new CourseDetailsEntity(uniqueID, owner, level, subject, exp, tutName,tutAdd, courseFees, feesNeg, trial,  tutType,email);
-		tut.service.OfyService.ofy().save().entity(course).now();
+	public void removeCourseDao(CourseDetailsEntity cde) {
+		ofy().delete().entity(cde).now();
+		
 	}
 
 }
