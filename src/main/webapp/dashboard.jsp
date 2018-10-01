@@ -218,7 +218,7 @@ if(session.getAttribute("uemail") == null){
 							//UserDetailsEntity tutor=OfyService.ofy().load().type(UserDetailsEntity.class).id(user.owner).now();
 							String cId=user.courseId;
 							%>
-							<div class="col-9 col-md-4 col-lg-4 col-xl-4 mb-4 pb-3 appear-animation <%=user.courseType %> columnC" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="100">
+							<div class="col-9 col-md-6 col-lg-4 col-xl-4 mb-4 pb-3 appear-animation <%=user.courseType %> columnC" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="100">
 								<div class="thumb-info thumb-info-hide-wrapper-bg custom-thumb-info-style-1">
 									<div class="thumb-info-wrapper">
 										<a href=<%="\"courseDetail.jsp?courseId="+cId+"\"" %>><img src="<%=servingUrl %>" class="img-fluid resp img-thumbnail" alt=""></a>
@@ -230,7 +230,7 @@ if(session.getAttribute("uemail") == null){
 									</div>
 									<div class="thumb-info-caption" style="margin-bottom:-40px;">
 										<a href=<%="\"courseDetail.jsp?courseId="+cId+"\"" %>><h2 class="font-weight-semibold text-transform-none" style="margin-top:-50px;"><%= user.subject %></h2></a>
-										<h6> </h6>
+										<h6 ><i class="fa fa-thumbs-up text-color-primary"></i> Likes :<%= user.likes%></h6>
 										<h5> -<%= ude.name %></h5>
 										<% if("Home".equals(user.tutType)){ %>
 										<i class="fa fa-home text-color-primary"> Home Tuition</i>
