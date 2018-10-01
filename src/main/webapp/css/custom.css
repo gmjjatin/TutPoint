@@ -1,5 +1,6 @@
 /* Add here all your CSS customizations */
 
+
 .like:hover{
 	cursor: pointer;
 	color: black;
@@ -9,6 +10,50 @@
 .button_box2 {
 margin:100px auto;
 }
+
+
+
+/*-------------------------------------*/
+.packages.section-background.custom-squared-section.custom-small-section-padding.custom-overlay-style-1 {
+    padding: 30px 30px !important;
+    clear: both;
+}
+
+.social-icons {
+    list-style: none !important;
+    display: ruby-base-container !important;
+}
+
+.social-icons li {
+    padding: 10px 10px !important;
+}
+/*searchbar*/
+#searchBar {
+	color: orange !important;
+	padding: .55em 0 !important;
+	width: 80%;
+	
+}
+.search {
+	align-self: auto !important;
+	width: 100%;
+}
+#customBtn {
+	background-color: orange !important;	
+}
+nav {
+	width: 100%;
+}
+/*searchbarEnd*/
+/* header */
+.header-container , .header-container li , .nav-link {
+	min-height:70px !important;
+	height:70px;
+}
+
+
+/* header ends*/
+
 /*-------------------------------------*/
 .cf:before, .cf:after{
 content:"";
@@ -218,5 +263,3 @@ padding: 0;
   background-color: #666;
    color: white;
 }
-
-

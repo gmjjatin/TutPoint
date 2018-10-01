@@ -124,7 +124,7 @@
 									<div class="search header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1">
 											<nav class="collapse py-2">
 												
-													<input class="py-2" type="search" name="searchString" data-target="#mysearch" list="mysearch" id="searchBox" placeholder="Search..."  >
+													<input id="searchBar" class="py-2" type="search" name="searchString" data-target="#mysearch" list="mysearch" id="searchBox" placeholder="Search..."  >
 									<datalist id="mysearch" >
 											<option>Accountancy</option>
 											<option>Business Studies</option>
@@ -134,12 +134,12 @@
 											<option>Science</option>
 											<option>Maths</option>
 									</datalist>
-                                    <button class="btn header-btn-collapse-nav " type="submit" onclick="filterSelectionForSearchBox()" ><i class="fa fa-search" aria-hidden="true"></i></button>
+                                    <button id="customBtn" class="btn" type="submit" onclick="filterSelectionForSearchBox()" ><i class="fa fa-search" aria-hidden="true"></i></button>
                                 
 													
 														
 												
-											</nav>
+								</nav>
 										</div>
 										<button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".search nav" >
 											<i class="fas fa-search"></i>

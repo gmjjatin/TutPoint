@@ -1,12 +1,12 @@
-filterSelection("all") // Execute the function and show all columns
-
+// Execute the function and show all columns
+filterSelection("all") 
 //for search box filter
 function filterSelectionForSearchBox(){
-	
-	
-	var y = document.getElementById("searchBox").value;
-	
-	  filterSelection(y);
+  
+  
+  var y = document.getElementById("searchBar").value;
+  
+    filterSelection(y);
 }
 
 function filterSelection(c) {
@@ -50,14 +50,14 @@ function w3RemoveClass(element, name) {
 // Add active class to the current button (highlight it)
 var btnContainer = document.getElementById("myBtnContainer");
 if(btnContainer!==null){
-	var btns = btnContainer.getElementsByClassName("btnC");
-	for (var i = 0; i < btns.length; i++) {
-	  btns[i].addEventListener("click", function(){
-	    var current = document.getElementsByClassName("active");
-	    current[0].className = current[0].className.replace(" active", "");
-	    this.className += " active";
-	  });
-	}
+  var btns = btnContainer.getElementsByClassName("btnC");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function(){
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
 }
 
 
@@ -75,3 +75,11 @@ function readURL(input) {
             reader.readAsDataURL(input.files[0]);
         }
     }
+
+//for search box enter press event
+$(document).ready(function(){
+  $('#searchBar').keypress(function(e){
+    if(e.keyCode==13)
+    $('#customBtn').click();
+  });
+});
